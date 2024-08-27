@@ -1,9 +1,12 @@
 <template>
-  <div class="flex items-center justify-center min-h-screen bg-gray-500">
-    <h1 class="text-4xl font-bold text-blue-500">
-      Bienvenue sur la page compétences !
-    </h1>
-    <router-link to="/" class="text-blue-700 underline">Accueil</router-link>
+  <div>
+    <h2 class="text-2xl font-bold mb-4">Compétences</h2>
+    <p class="text-lg text-gray-700">
+      Ceci est le contenu du modal 'Compétences'. 
+    </p>
+    <button @click="$emit('close')" class="mt-4 px-4 py-2 bg-black text-white rounded-full hover:bg-gray-700 transition">
+      Fermer
+    </button>
   </div>
 </template>
 
@@ -14,5 +17,5 @@ export default {
 </script>
 
 <style scoped>
-/* Styles spécifiques à Acceuil ici */
+/* Ajoutez vos styles ici si nécessaire */
 </style>

@@ -1,18 +1,19 @@
 <template>
   <div class="flex flex-col min-h-screen bg-white p-5">
     <!-- Barre de navigation -->
-    <div class="flex justify-between fade-in-down" v-show="isVisible" :style="{ animationDelay: '1s' }">
+    <div class="flex justify-between animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '1s' }">
       <span class="text-black-700 text-xl font-rounded p-2">Naomie</span>
       <div class="flex space-x-5">
-        <!-- Lien avec gestion du clic pour ouvrir le modal -->
-        <a @click="openModal" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">À propos</a>
-        <router-link to="/contact" class="text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Contact</router-link>
-        <router-link to="/projets" class="text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Projets</router-link>
+        <!-- Lien avec gestion du clic pour ouvrir le modal À propos -->
+        <a @click="openModal('apropos')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">À propos</a>
+        <!-- Lien avec gestion du clic pour ouvrir le modal Contact -->
+        <a @click="openModal('contact')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Contact</a>
+        <a @click="openModal('skills')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Compétences</a>
       </div>
     </div>
 
     <!-- Contenu principal -->
-    <div class="flex mt-32 w-full fade-in-down" v-show="isVisible" :style="{ animationDelay: '1s' }">
+    <div class="flex mt-32 w-full animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '1s' }">
       <div class="flex flex-col items-start">
         <span class="text-black-700 text-8xl font-bold">I'm Naomie <br> KOTIN.</span>
         <p class="mt-10 text-black-700 text-2xl font-rounded">
@@ -21,60 +22,81 @@
       </div>
 
       <!-- Section des projets sélectionnés -->
-      <div class="flex flex-col items-start ml-80 fade-in-down" v-show="isVisible" :style="{ animationDelay: '1.5s' }">
+      <div class="flex flex-col items-start ml-80 " >
         <span class="text-black-700 text-lg font-rounded opacity-50 hover:opacity-75">SELECTED PROJECTS</span>
         <div class="mt-5 flex flex-col">
           <!-- Projet 1 -->
-          <div class="relative mb-6 fade-in-down" v-show="isVisible" :style="{ animationDelay: '2s' }" @click="animateLine(0)">
-            <span class="text-black-700 text-lg font-rounded hover:opacity-80">StartGlobal</span>
-            <div :class="{'line': true, 'animate': activeIndex === 0}"></div>
+          <div class="relative mb-6 "   @mouseover="animateLine(0)">
+            <label class="text-black-700 text-lg font-rounded hover:opacity-60">StartGlobal</label>
+            <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 0}"></div>
           </div>
           <!-- Projet 2 -->
-          <div class="relative mb-6 fade-in-down" v-show="isVisible" :style="{ animationDelay: '2.2s' }" @click="animateLine(1)">
-            <span class="text-black-700 text-lg font-rounded hover:opacity-80">Project2</span>
-            <div :class="{'line': true, 'animate': activeIndex === 1}"></div>
+         <div class="relative mb-6 "  @mouseover="animateLine(1)">
+            <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project2</button>
+            <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 1}"></div>
           </div>
           <!-- Projet 3 -->
-          <div class="relative mb-6 fade-in-down" v-show="isVisible" :style="{ animationDelay: '2.4s' }" @click="animateLine(2)">
-            <span class="text-black-700 text-lg font-rounded hover:opacity-80">Project3</span>
-            <div :class="{'line': true, 'animate': activeIndex === 2}"></div>
+          <div class="relative mb-6 "  @mouseover="animateLine(2)">
+            <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project3</button>
+            <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 2}"></div>
           </div>
           <!-- Projet 4 -->
-          <div class="relative mb-6 fade-in-down" v-show="isVisible" :style="{ animationDelay: '2.6s' }" @click="animateLine(3)">
-            <span class="text-black-700 text-lg font-rounded hover:opacity-80">Project4</span>
-            <div :class="{'line': true, 'animate': activeIndex === 3}"></div>
+          <div class="relative mb-6 "  @mouseover="animateLine(3)">
+            <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project4</button>
+            <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 3}"></div>
           </div>
           <!-- Projet 5 -->
-          <div class="relative mb-6 fade-in-down" v-show="isVisible" :style="{ animationDelay: '2.8s' }" @click="animateLine(4)">
-            <span class="text-black-700 text-lg font-rounded hover:opacity-80">Project5</span>
-            <div :class="{'line': true, 'animate': activeIndex === 4}"></div>
+         <div class="relative mb-6 "  @mouseover="animateLine(4)">
+            <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project5</button>
+            <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 4}"></div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Modal À propos -->
-    <transition name="slide-right">
-      <div v-if="isModalOpen" class="fixed inset-0 z-50 flex bg-black bg-opacity-50">
+    <transition enter-active-class="animate-slide-right-enter" leave-active-class="animate-slide-right-leave">
+      <div v-if="isModalOpen && activeModal === 'apropos'" class="fixed inset-0 z-50 flex bg-black bg-opacity-50">
         <Apropos @close="closeModal" class="bg-white w-2/3 lg:w-1/3 h-full p-8 ml-auto" />
       </div>
     </transition>
+
+    <!-- Modal Contact -->
+    <transition enter-active-class="animate-slide-down-enter" leave-active-class="animate-slide-down-leave">
+      <div v-if="isModalOpen && activeModal === 'contact'" class="fixed inset-0 z-50 flex items-start justify-center bg-black bg-opacity-50 pt-10">
+        <Contact @close="closeModal" />
+      </div>
+    </transition>
+
+     <!-- Modal Skills -->
+    <transition enter-active-class="animate-slide-right-enter" leave-active-class="animate-slide-right-leave">
+      <div v-if="isModalOpen && activeModal === 'skills'" class="fixed inset-0 z-50 flex bg-black bg-opacity-50">
+        <Skills @close="closeModal" class="bg-white w-2/3 lg:w-1/3 h-full p-8 ml-auto" />
+      </div>
+    </transition>
+
   </div>
 </template>
 
 <script>
 import Apropos from './Apropos.vue';
+import Contact from './Contact.vue';
+import Skills from './Skills.vue';
+
 
 export default {
   name: 'Acceuil',
   components: {
     Apropos,
+    Contact,
+    Skills
   },
   data() {
     return {
       isVisible: false,
       activeIndex: null,
       isModalOpen: false,
+      activeModal: null,
     };
   },
   mounted() {
@@ -89,71 +111,21 @@ export default {
         this.activeIndex = index;
       }, 50);
     },
-    openModal() {
+    openModal(modal) {
+      this.activeModal = modal;
       this.isModalOpen = true;
     },
     closeModal() {
       this.isModalOpen = false;
+      this.activeModal = null;
     },
   },
 };
 </script>
 
 <style scoped>
-/* Animation de défilement du haut vers le bas */
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Appliquer l'animation aux éléments */
-.fade-in-down {
-  animation: fadeInDown 1.5s ease forwards;
-}
 
-.line {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 450%;
-  border-top: 2px solid gray;
-  transition: none; /* Désactiver la transition par défaut */
-}
 
-.animate {
-  border-color: transparent;
-  animation: fadeOutAndSlideIn 1.5s ease forwards;
-}
 
-@keyframes fadeOutAndSlideIn {
-  0% {
-    border-color: transparent;
-    width: 450%;
-  }
-  50% {
-    width: 0;
-    border-color: transparent;
-  }
-  100% {
-    width: 450%;
-    border-color: gray;
-  }
-}
-
-/* Animation pour faire glisser le modal depuis la droite */
-.slide-right-enter-active {
-  transition: transform 1s ease;
-}
-.slide-right-leave-active {
-  transition: transform 1s ease;
-}
-.slide-right-enter, .slide-right-leave-to {
-  transform: translateX(100%); /* Déplacer de la droite */
-}
 </style>

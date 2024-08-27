@@ -2,7 +2,7 @@
   <div>
     <h2 class="text-2xl font-bold mb-4">À propos</h2>
     <p class="text-lg text-gray-700">
-      Ceci est le contenu du modal 'À propos'. Vous pouvez y ajouter des informations pertinentes sur vous ou votre travail.
+      Ceci est le contenu du modal 'À propos'. 
     </p>
     <button @click="$emit('close')" class="mt-4 px-4 py-2 bg-black text-white rounded-full hover:bg-gray-700 transition">
       Fermer
