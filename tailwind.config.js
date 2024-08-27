@@ -57,7 +57,7 @@ export default {
       },
       },
       animation: {
-        fadeInDown: 'fadeInDown 1.5s ease forwards',
+        fadeInDown: 'fadeInDown 5s ease forwards',
         fadeOutAndSlideIn: 'fadeOutAndSlideIn 1s ease forwards',
         'slide-right-enter': 'slideRightEnter 1s ease forwards',
         'slide-right-leave': 'slideRightLeave 1s ease forwards',
