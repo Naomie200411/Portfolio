@@ -1,33 +1,33 @@
 <template>
-  <div class="flex flex-col min-h-screen bg-white p-5">
+  <div class="flex flex-col  bg-white p-5">
     <!-- Barre de navigation -->
     <div class="flex flex-col sm:flex-row justify-between animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '0.2s' }">
-  <span class="text-black-700 text-xl font-rounded p-2">Naomie</span>
-  <div class="flex flex-col sm:flex-row sm:space-x-5 mt-4 sm:mt-0">
-    <a @click="openModal('apropos')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">À propos</a>
-    <a @click="openModal('contact')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Contact</a>
-    <a @click="openModal('skills')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Compétences</a>
-  </div>
-</div>
+      <span class="text-black-700 text-xl font-rounded p-2 font-bold">Développeur web</span>
+      <div class="flex flex-col sm:flex-row sm:space-x-5 mt-4 sm:mt-0">
+        <a @click="openModal('apropos')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">À propos</a>
+        <a @click="openModal('contact')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Contact</a>
+        <a @click="openModal('skills')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Compétences</a>
+      </div>
+    </div>
 
 
     <!-- Contenu principal -->
-   <div class="flex mt-16 sm:mt-32 w-full animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '0.2s' }">
+   <div class="flex mt-16 sm:mt-32  animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '0.2s' }">
         <div class="flex flex-col items-start">
         <span class="text-black-700 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">I'm Naomie <br> KOTIN.</span>
-        <p class="mt-5 sm:mt-10 text-black-700 text-lg sm:text-xl md:text-2xl font-rounded">
-          I design products with purpose and meticulous <br class="hidden sm:block"> attention to detail. Available for work.
+        <p class="mt-5 sm:mt-10 text-black-700 text-xs sm:text-xl md:text-2xl font-rounded">
+          Je conçois avec détermination et un souci <br class="hidden sm:block">minutieux du détail. Disponible pour travailler.
         </p>
    </div>
 
       <!-- Section des projets sélectionnés -->
-    <div class="flex flex-col sm:flex-col md:flex-row lg:flex-col items-start sm:ml-0 md:ml-20 lg:ml-80">
+    <div class="flex flex-col sm:flex-col md:flex-row lg:flex-col items-start sm:ml-0 md:ml-20 lg:ml-80 modal-container">
       <span class="text-black-700 text-lg font-rounded opacity-50 hover:opacity-75">PROJETS RÉALISÉS</span>
       <div class="mt-5 flex flex-col">
         <!-- Projet 1 -->
         <div class="relative mb-6" @mouseover="animateLine(0)" >
           <label class="text-black-700 text-lg font-rounded hover:opacity-60" @click="showProject(0)">HairHub</label>
-          <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 0}"></div>
+          <div :class="{'absolute bottom-line left-0 w-full sm:w-350p lg:w-200p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 0}"></div>
         </div>
         <!-- Projet 2 -->
         <div class="relative mb-6" @mouseover="animateLine(1)" @click="showProject(1)">
@@ -54,14 +54,15 @@
     </div>
 
      <!-- Section pour afficher le projet sélectionné -->
-    <transition  name="slide-fade">
-      <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-black text-white flex items-center justify-center">
-        <div class="w-full h-full p-10">
-          <button class="text-xl font-bold" @click="closeProject">Close</button>
-          <component :is="projectComponent"></component>
-        </div>
-      </div>
-    </transition>
+   <transition name="slide-fade">
+  <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-black text-white flex items-center justify-center">
+    <div class="w-full h-full p-20 relative">
+      <button class="text-xl font-bold absolute top-4 right-4" @click="closeProject">Close</button>
+      <component :is="projectComponent"></component>
+    </div>
+  </div>
+</transition>
+
 
     <!-- Modal À propos -->
     <transition enter-active-class="animate-slide-right-enter" leave-active-class="animate-slide-right-leave">
@@ -169,7 +170,7 @@ export default {
     leave(el, done) {
       el.style.transform = 'translateY(100%)';
       el.style.opacity = '0';
-      el.style.transition = 'transform 0s ease-in-out, opacity 2s ease-in-out';
+      el.style.transition = 'transform 1s ease-in-out, opacity 2s ease-in-out';
       done();
     },
 
@@ -203,12 +204,21 @@ export default {
 }
 
 .slide-fade-enter-active {
-  animation: slide-in 1s ease-in-out;
+  animation: slide-in 0.7s ease-in-out;
 }
 
 .slide-fade-leave-active {
   animation: slide-out 1s ease-in-out;
 }
+body {
+  overflow-x: hidden;
+}
+/* Exemple de modal */
+.modal-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
 
 

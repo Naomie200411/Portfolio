@@ -14,6 +14,7 @@ export default {
       },
       width: {
         '350p': '350%',
+        '200p': '200%',
       },
       borderWidth: {
         'line': '2px',
@@ -55,7 +56,6 @@ export default {
           '100%': { transform: 'translateY(-100%)' },
         },
       },
-      
       },
       animation: {
         fadeInDown: 'fadeInDown 5s ease forwards',
