@@ -55,6 +55,7 @@ export default {
           '100%': { transform: 'translateY(-100%)' },
         },
       },
+      
       },
       animation: {
         fadeInDown: 'fadeInDown 5s ease forwards',

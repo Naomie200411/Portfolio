@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen bg-white p-5">
     <!-- Barre de navigation -->
-    <div class="flex flex-col sm:flex-row justify-between animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '1s' }">
+    <div class="flex flex-col sm:flex-row justify-between animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '0.2s' }">
   <span class="text-black-700 text-xl font-rounded p-2">Naomie</span>
   <div class="flex flex-col sm:flex-row sm:space-x-5 mt-4 sm:mt-0">
     <a @click="openModal('apropos')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">À propos</a>
@@ -12,7 +12,7 @@
 
 
     <!-- Contenu principal -->
-   <div class="flex mt-16 sm:mt-32 w-full animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '1s' }">
+   <div class="flex mt-16 sm:mt-32 w-full animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '0.2s' }">
         <div class="flex flex-col items-start">
         <span class="text-black-700 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">I'm Naomie <br> KOTIN.</span>
         <p class="mt-5 sm:mt-10 text-black-700 text-lg sm:text-xl md:text-2xl font-rounded">
@@ -21,38 +21,47 @@
    </div>
 
       <!-- Section des projets sélectionnés -->
-     <div class="flex flex-col sm:flex-col md:flex-row lg:flex-col items-start sm:ml-0 md:ml-20 lg:ml-80">
-  <span class="text-black-700 text-lg font-rounded opacity-50 hover:opacity-75">SELECTED PROJECTS</span>
-  <div class="mt-5 flex flex-col">
-    <!-- Projet 1 -->
-    <div class="relative mb-6" @mouseover="animateLine(0)">
-      <label class="text-black-700 text-lg font-rounded hover:opacity-60">StartGlobal</label>
-      <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 0}"></div>
+    <div class="flex flex-col sm:flex-col md:flex-row lg:flex-col items-start sm:ml-0 md:ml-20 lg:ml-80">
+      <span class="text-black-700 text-lg font-rounded opacity-50 hover:opacity-75">PROJETS RÉALISÉS</span>
+      <div class="mt-5 flex flex-col">
+        <!-- Projet 1 -->
+        <div class="relative mb-6" @mouseover="animateLine(0)" >
+          <label class="text-black-700 text-lg font-rounded hover:opacity-60" @click="showProject(0)">HairHub</label>
+          <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 0}"></div>
+        </div>
+        <!-- Projet 2 -->
+        <div class="relative mb-6" @mouseover="animateLine(1)" @click="showProject(1)">
+          <button class="text-black-700 text-lg font-rounded hover:opacity-60">Portfolio</button>
+          <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 1}"></div>
+        </div>
+        <!-- Projet 3 -->
+        <div class="relative mb-6" @mouseover="animateLine(2)" @click="showProject(2)">
+          <button class="text-black-700 text-lg font-rounded hover:opacity-60">ReactDesign</button>
+          <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 2}"></div>
+        </div>
+        <!-- Projet 4 -->
+        <div class="relative mb-6" @mouseover="animateLine(3)" @click="showProject(3)">
+          <button class="text-black-700 text-lg font-rounded hover:opacity-60">Reconnaissance de texte dans image</button>
+          <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 3}"></div>
+        </div>
+        <!-- Projet 5 -->
+        <div class="relative mb-6" @mouseover="animateLine(4)" @click="showProject(4)">
+          <button class="text-black-700 text-lg font-rounded hover:opacity-60">Gestion de Projet</button>
+          <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 4}"></div>
+        </div>
+      </div>
     </div>
-    <!-- Projet 2 -->
-    <div class="relative mb-6" @mouseover="animateLine(1)">
-      <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project2</button>
-      <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 1}"></div>
     </div>
-    <!-- Projet 3 -->
-    <div class="relative mb-6" @mouseover="animateLine(2)">
-      <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project3</button>
-      <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 2}"></div>
-    </div>
-    <!-- Projet 4 -->
-    <div class="relative mb-6" @mouseover="animateLine(3)">
-      <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project4</button>
-      <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 3}"></div>
-    </div>
-    <!-- Projet 5 -->
-    <div class="relative mb-6" @mouseover="animateLine(4)">
-      <button class="text-black-700 text-lg font-rounded hover:opacity-60">Project5</button>
-      <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 4}"></div>
-    </div>
-  </div>
-</div>
 
-    </div>
+     <!-- Section pour afficher le projet sélectionné -->
+    <transition  name="slide-fade">
+      <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-black text-white flex items-center justify-center">
+        <div class="w-full h-full p-10">
+          <button class="text-xl font-bold" @click="closeProject">Close</button>
+          <component :is="projectComponent"></component>
+        </div>
+      </div>
+    </transition>
 
     <!-- Modal À propos -->
     <transition enter-active-class="animate-slide-right-enter" leave-active-class="animate-slide-right-leave">
@@ -82,6 +91,13 @@
 import Apropos from './Apropos.vue';
 import Contact from './Contact.vue';
 import Skills from './Skills.vue';
+import HairhubProject from './HairhubProject.vue';
+import ReactProject from './ReactProject.vue';
+import FlutterProject from './FlutterProject.vue';
+import PortfolioProject from './PortfolioProject.vue';
+import GestionProject from './GestionProject.vue';
+
+
 
 
 export default {
@@ -97,12 +113,21 @@ export default {
       activeIndex: null,
       isModalOpen: false,
       activeModal: null,
+      selectedProject: null,
+      projectVisible: false,
+      projectComponents: [HairhubProject,PortfolioProject,ReactProject,FlutterProject,GestionProject],
     };
+  },
+   computed: {
+    projectComponent() {
+      return this.selectedProject !== null ? this.projectComponents[this.selectedProject] : null;
+    },
   },
   mounted() {
     setTimeout(() => {
       this.isVisible = true;
     }, 100);
+
   },
   methods: {
     animateLine(index) {
@@ -119,12 +144,71 @@ export default {
       this.isModalOpen = false;
       this.activeModal = null;
     },
+
+     showProject(index) {
+    this.selectedProject = index;
+    this.projectVisible = true;
+    },
+    closeProject() {
+      this.projectVisible = false;
+      setTimeout(() => {
+        this.selectedProject = null;
+      }, 100); // Durée de l'animation de fermeture
+    },
+    beforeEnter(el) {
+      el.style.transform = 'translateY(100%)';
+      el.style.opacity = '0';
+      el.style.transition = 'transform 1s ease-in-out, opacity 2s ease-in-out';
+    },
+    enter(el, done) {
+      el.offsetHeight; // trigger reflow
+      el.style.transform = 'translateY(0)';
+      el.style.opacity = '1';
+      done();
+    },
+    leave(el, done) {
+      el.style.transform = 'translateY(100%)';
+      el.style.opacity = '0';
+      el.style.transition = 'transform 0s ease-in-out, opacity 2s ease-in-out';
+      done();
+    },
+
   },
 };
 </script>
 
 <style scoped>
+/* Animation d'apparition */
+@keyframes slide-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
+/* Animation de disparition */
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.slide-fade-enter-active {
+  animation: slide-in 1s ease-in-out;
+}
+
+.slide-fade-leave-active {
+  animation: slide-out 1s ease-in-out;
+}
 
 
 
