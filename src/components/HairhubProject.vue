@@ -1,7 +1,7 @@
 <template>
   <div class="font-white">
     <h1 class="text-2xl font-bold">HairhubProject</h1>
-    <p class="mt-4">Description of HairhubProject...</p>
+    <p class="mt-4">Description of HairhubProject...fgyfjkhfjdvnjkwnvjkwhvjhvjvhbhdhcb <br> bhqcvg</p>
   </div>
 </template>
 

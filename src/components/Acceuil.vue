@@ -22,7 +22,7 @@
 
       <!-- Section des projets sélectionnés -->
     <div class="flex flex-col sm:flex-col md:flex-row lg:flex-col items-start sm:ml-0 md:ml-20 lg:ml-80 modal-container">
-      <span class="text-black-700 text-lg font-rounded opacity-50 hover:opacity-75">PROJETS RÉALISÉS</span>
+      <span class="text-black-700 text-lg font-rounded  hover:opacity-60">PROJETS RÉALISÉS</span>
       <div class="mt-5 flex flex-col">
         <!-- Projet 1 -->
         <div class="relative mb-6" @mouseover="animateLine(0)" >
@@ -55,9 +55,9 @@
 
      <!-- Section pour afficher le projet sélectionné -->
    <transition name="slide-fade">
-  <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-black text-white flex items-center justify-center">
+  <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-slate-950 text-white flex items-center justify-center opacity-90">
     <div class="w-full h-full p-20 relative">
-      <button class="text-xl font-bold absolute top-4 right-4" @click="closeProject">Close</button>
+      <button class="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 transition absolute top-0 right-4" @click="closeProject">Fermer</button>
       <component :is="projectComponent"></component>
     </div>
   </div>
