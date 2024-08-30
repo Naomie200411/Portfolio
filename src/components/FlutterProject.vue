@@ -1,5 +1,5 @@
 <template>
-  <div class="font-white overflow-y-auto">
+  <div class="font-white ">
     <h1 class="text-4xl font-bold font-rounded text-cyan-100 mt-5">Reconnaissance de texte dans une image</h1>
     <h2 class="mt-4 text-2xl font-rounded text-cyan-100">Présentation du projet</h2>
     <p class="text-justify hover:text-center hover:text-cyan-400 mt-2 hover:cursor-pointer">
@@ -14,7 +14,7 @@
     </p>
     <br>
     <h2 class="mt-4 text-2xl font-rounded text-cyan-100">Aperçu de l'application</h2>
-     <img src="../assets/images/flutter.jpeg" alt="Aperçu de l'application" class="mt-4 rounded-lg  h-[400px] w-[350px]">
+     <img src="../assets/images/flutter.jpeg" alt="Aperçu de l'application" class="mt-4 rounded-lg  h-[400px] w-[350px]  transition-transform duration-500 hover:scale-115">
   </div>
 </template>
 

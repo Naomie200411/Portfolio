@@ -6,7 +6,7 @@
     <!-- Présentation du projet -->
     <h2 class="mt-4 text-2xl font-rounded text-cyan-100">Présentation du projet</h2>
     <p class="text-justify hover:text-center hover:text-cyan-400 mt-2 hover:cursor-pointer">
-      Il s'agit ici de quelques designs faits avec TailwidCSS
+     Ce projet met en avant plusieurs designs créés en utilisant Tailwind CSS, démontrant la flexibilité et la puissance de ce framework pour concevoir des interfaces modernes et élégantes.
     </p>
 
 
