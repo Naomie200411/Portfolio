@@ -31,7 +31,7 @@
         </div>
         <!-- Projet 2 -->
         <div class="relative mb-6" @mouseover="animateLine(1)" @click="showProject(1)">
-          <button class="text-black-700 text-lg font-rounded hover:opacity-60">Portfolio</button>
+          <button class="text-black-700 text-lg font-rounded hover:opacity-60">TailwindCSS Design</button>
           <div :class="{'absolute bottom-line left-0 w-350p border-t-line border-line-gray transition-none': true, 'animate-fadeOutAndSlideIn': activeIndex === 1}"></div>
         </div>
         <!-- Projet 3 -->
@@ -55,7 +55,7 @@
 
      <!-- Section pour afficher le projet sélectionné -->
    <transition name="slide-fade">
-  <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-slate-950 text-white flex items-center justify-center opacity-90">
+  <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-slate-900 text-white flex items-center justify-center opacity-90 overflow-y-auto">
     <div class="w-full h-full p-20 relative">
       <button class="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 transition absolute top-0 right-4" @click="closeProject">Fermer</button>
       <component :is="projectComponent"></component>

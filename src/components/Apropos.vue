@@ -9,7 +9,7 @@
        Je m'appelle Olamidé Naomie Syntiche KOTIN et je suis une développeuse web passionnée, récemment diplômée d'une licence en informatique. J'ai effectué trois années d'études à l'École Supérieure de Gestion, d'Informatique et des Sciences (ESGIS). 
       </p><br>
      <h2 class="text-2xl font-bold mb-4 ">Expériences</h2>
-     <p class="text-sm text-black-700 text-justify">J'ai eu l'opportunité de travailler dans deux entreprises où j'ai acquis une expérience précieuse en développement web. 
+     <p class="text-sm text-black-700 text-justify">J'ai eu l'opportunité de travailler dans deux entreprises (Ma-INFO,TEC-SARL) où j'ai acquis une expérience précieuse en développement web. 
       Ces expériences m'ont également permis de m'habituer à travailler en équipe et de développer ma capacité à gérer la pression efficacement.</p><br>
 
       <h2 class="text-2xl font-bold mb-4 ">Objectif</h2>
