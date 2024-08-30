@@ -14,7 +14,7 @@
     </p>
     <br>
     <h2 class="mt-4 text-2xl font-rounded text-cyan-100">Aperçu de l'application</h2>
-     <img src="../assets/images/flutter.jpeg" alt="Aperçu de l'application" class="mt-4 rounded-lg  h-[400px] w-[350px]  transition-transform duration-500 hover:scale-115">
+     <img src="../assets/images/flutter.jpeg" alt="Aperçu de l'application" class="mt-4 rounded-lg  h-[400px] w-[350px]  transition-transform duration-500 hover:scale-105">
   </div>
 </template>
 
