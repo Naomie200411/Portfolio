@@ -7,7 +7,10 @@
       <h2 class="text-xl font-bold mb-4 mt-6">Contactez-moi</h2>
       <p>Email: syntichekotin@gmail.com</p>
       <p>Téléphone: +22990829540 / +22941632564</p>
-      <p>Connectez-vous avec moi sur <a href="https://www.linkedin.com/in/syntiche-kotin-4288872a4/" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a>.</p>    </div>
+      <p>Connectez-vous avec moi sur <a href="https://www.linkedin.com/in/syntiche-kotin-4288872a4/" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a></p> 
+      <p>Trouvez plus de projets sur <a href="https://github.com/Naomie200411/" target="_blank" class="text-blue-600 hover:underline">github</a></p>  
+        </div>
+
   </div>
 </template>
 
