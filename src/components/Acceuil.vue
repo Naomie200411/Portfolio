@@ -2,7 +2,7 @@
   <div class="flex flex-col  bg-white p-5">
     <!-- Barre de navigation -->
     <div class="flex flex-col sm:flex-row justify-between animate-fadeInDown" v-show="isVisible" :style="{ animationDelay: '0.2s' }">
-      <span class="text-black-700 text-xl font-rounded p-2 font-bold">Développeur web</span>
+      <span class="text-black-700 text-2xl font-rounded p-2 font-bold">Développeur web</span>
       <div class="flex flex-col sm:flex-row sm:space-x-5 mt-4 sm:mt-0">
         <a @click="openModal('apropos')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">À propos</a>
         <a @click="openModal('contact')" class="cursor-pointer text-black-700 text-xl font-rounded hover:bg-black hover:text-white rounded-full p-2 transition">Contact</a>
@@ -55,9 +55,9 @@
 
      <!-- Section pour afficher le projet sélectionné -->
    <transition name="slide-fade">
-  <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-slate-900 text-white flex items-center justify-center opacity-90 overflow-y-auto">
+  <div v-if="selectedProject !== null" class="fixed inset-0 z-50 bg-slate-900 text-white flex items-center justify-center opacity-70 overflow-y-auto">
     <div class="w-full h-full p-20 relative">
-      <button class="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 transition absolute top-0 right-4" @click="closeProject">Fermer</button>
+      <button class="backg-red mt-4 px-4 py-2 text-white font-bold rounded-lg hover:bg-red-500 transition absolute top-0 right-4" @click="closeProject" >Fermer</button>
       <component :is="projectComponent"></component>
     </div>
   </div>
@@ -87,139 +87,139 @@
 
   </div>
 </template>
-
-<script>
-import Apropos from './Apropos.vue';
-import Contact from './Contact.vue';
-import Skills from './Skills.vue';
-import HairhubProject from './HairhubProject.vue';
-import ReactProject from './ReactProject.vue';
-import FlutterProject from './FlutterProject.vue';
-import PortfolioProject from './PortfolioProject.vue';
-import GestionProject from './GestionProject.vue';
-
+  <script>
+    import Apropos from './Apropos.vue';
+    import Contact from './Contact.vue';
+    import Skills from './Skills.vue';
+    import HairhubProject from './HairhubProject.vue';
+    import ReactProject from './ReactProject.vue';
+    import FlutterProject from './FlutterProject.vue';
+    import PortfolioProject from './PortfolioProject.vue';
+    import GestionProject from './GestionProject.vue';
 
 
 
-export default {
-  name: 'Acceuil',
-  components: {
-    Apropos,
-    Contact,
-    Skills
-  },
-  data() {
-    return {
-      isVisible: false,
-      activeIndex: null,
-      isModalOpen: false,
-      activeModal: null,
-      selectedProject: null,
-      projectVisible: false,
-      projectComponents: [HairhubProject,PortfolioProject,ReactProject,FlutterProject,GestionProject],
+
+    export default {
+      name: 'Acceuil',
+      components: {
+        Apropos,
+        Contact,
+        Skills
+      },
+      data() {
+        return {
+          isVisible: false,
+          activeIndex: null,
+          isModalOpen: false,
+          activeModal: null,
+          selectedProject: null,
+          projectVisible: false,
+          projectComponents: [HairhubProject,PortfolioProject,ReactProject,FlutterProject,GestionProject],
+        };
+      },
+      computed: {
+        projectComponent() {
+          return this.selectedProject !== null ? this.projectComponents[this.selectedProject] : null;
+        },
+      },
+      mounted() {
+        setTimeout(() => {
+          this.isVisible = true;
+        }, 100);
+
+      },
+      methods: {
+        animateLine(index) {
+          this.activeIndex = null;
+          setTimeout(() => {
+            this.activeIndex = index;
+          }, 50);
+        },
+        openModal(modal) {
+          this.activeModal = modal;
+          this.isModalOpen = true;
+        },
+        closeModal() {
+          this.isModalOpen = false;
+          this.activeModal = null;
+        },
+
+        showProject(index) {
+        this.selectedProject = index;
+        this.projectVisible = true;
+        },
+        closeProject() {
+          this.projectVisible = false;
+          setTimeout(() => {
+            this.selectedProject = null;
+          }, 100); // Durée de l'animation de fermeture
+        },
+        beforeEnter(el) {
+          el.style.transform = 'translateY(100%)';
+          el.style.opacity = '0';
+          el.style.transition = 'transform 1s ease-in-out, opacity 2s ease-in-out';
+        },
+        enter(el, done) {
+          el.offsetHeight; // trigger reflow
+          el.style.transform = 'translateY(0)';
+          el.style.opacity = '1';
+          done();
+        },
+        leave(el, done) {
+          el.style.transform = 'translateY(100%)';
+          el.style.opacity = '0';
+          el.style.transition = 'transform 1s ease-in-out, opacity 2s ease-in-out';
+          done();
+        },
+
+      },
     };
-  },
-   computed: {
-    projectComponent() {
-      return this.selectedProject !== null ? this.projectComponents[this.selectedProject] : null;
-    },
-  },
-  mounted() {
-    setTimeout(() => {
-      this.isVisible = true;
-    }, 100);
+  </script>
 
-  },
-  methods: {
-    animateLine(index) {
-      this.activeIndex = null;
-      setTimeout(() => {
-        this.activeIndex = index;
-      }, 50);
-    },
-    openModal(modal) {
-      this.activeModal = modal;
-      this.isModalOpen = true;
-    },
-    closeModal() {
-      this.isModalOpen = false;
-      this.activeModal = null;
-    },
+  <style scoped>
+    /* Animation d'apparition */
+    @keyframes slide-in {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-     showProject(index) {
-    this.selectedProject = index;
-    this.projectVisible = true;
-    },
-    closeProject() {
-      this.projectVisible = false;
-      setTimeout(() => {
-        this.selectedProject = null;
-      }, 100); // Durée de l'animation de fermeture
-    },
-    beforeEnter(el) {
-      el.style.transform = 'translateY(100%)';
-      el.style.opacity = '0';
-      el.style.transition = 'transform 1s ease-in-out, opacity 2s ease-in-out';
-    },
-    enter(el, done) {
-      el.offsetHeight; // trigger reflow
-      el.style.transform = 'translateY(0)';
-      el.style.opacity = '1';
-      done();
-    },
-    leave(el, done) {
-      el.style.transform = 'translateY(100%)';
-      el.style.opacity = '0';
-      el.style.transition = 'transform 1s ease-in-out, opacity 2s ease-in-out';
-      done();
-    },
+    /* Animation de disparition */
+    @keyframes slide-out {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }
 
-  },
-};
-</script>
+    .slide-fade-enter-active {
+      animation: slide-in 0.7s ease-in-out;
+    }
 
-<style scoped>
-/* Animation d'apparition */
-@keyframes slide-in {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+    .slide-fade-leave-active {
+      animation: slide-out 1s ease-in-out;
+    }
+    body {
+      overflow-x: hidden;
+    }
+    /* Exemple de modal */
+    .modal-container {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
 
-/* Animation de disparition */
-@keyframes slide-out {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-}
+    .backg-red {
+      background-color: red;
+    }
 
-.slide-fade-enter-active {
-  animation: slide-in 0.7s ease-in-out;
-}
-
-.slide-fade-leave-active {
-  animation: slide-out 1s ease-in-out;
-}
-body {
-  overflow-x: hidden;
-}
-/* Exemple de modal */
-.modal-container {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-
-
-
-</style>
+  </style>
